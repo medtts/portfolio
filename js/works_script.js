@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const params = new URLSearchParams(window.location.search);
     const workId = params.get('id');
 
-    fetch('../js/data.json')
+    fetch('js/data.json')
         .then(response => response.json())
         .then(dataList => {
             const data = dataList.find(item => item.id === workId);
@@ -71,7 +71,7 @@ function renderTools(toolsString) {
         const item = document.createElement('div');
         item.className = 'tool-item';
         item.innerHTML = `
-            <img src="../image/${iconFileName}" class="tool-icon" alt="${toolName}">
+            <img src="image/${iconFileName}" class="tool-icon" alt="${toolName}">
             <span class="tool-name">${toolName}</span>
         `;
         listContainer.appendChild(item);
