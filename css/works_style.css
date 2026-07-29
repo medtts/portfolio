@@ -1,0 +1,189 @@
+/* --- リセット＆基本設定 --- */
+:root {
+    --base--color: #1B4965;
+    --accent--color: #FFB703;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    position: relative;
+    font-family: "Shippori Mincho B1", sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+    line-height: 1.6;
+}
+/* body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 20%;        
+  
+    width: 2px;
+    height: 100%;
+    background-color: #ddd;
+    z-index: -1;
+} */
+/* body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 20%;       
+  
+    width: 2px;
+    height: 100%;
+    background-color: #ddd;
+    z-index: -1;
+} */
+
+.container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+
+header { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; background: #fff; text-align: center; box-shadow: 0 0 10px #ddd;}
+header .logo a { text-decoration: none; font-family: "Alice", sans-serif; font-size: 20px; font-weight: 600; color: #333; }
+header .logo a:hover { text-decoration: underline; }
+
+/* --- 作品詳細のデザイン --- */
+.work-detail-container h1 { 
+    font-family: "Shippori Mincho B1", sans-serif; 
+    font-weight: 600;
+    font-size: 28px; 
+    /* margin-bottom: 30px;  */
+    text-align: center;
+    color: rgb(51, 51, 51);
+}
+
+/* タイトル下のアクセントライン：統一設定 */
+.accent-title {
+    font-family: "Alice", sans-serif;
+    position: relative;
+    color: rgb(51, 51, 51);
+    display: block;
+}
+.accent-title::after {
+    content: '';
+    display: block;
+    width: 40px; 
+    height: 3px; 
+    background-color: var(--accent--color);
+    margin: 10px auto 0;
+}
+.name {
+    font-family: "Alice", sans-serif;
+    position: relative;
+    color: rgb(51, 51, 51);
+    display: block;
+    text-align: center;
+    position: relative;
+}
+.name::after {
+    content: '';
+    display: block;
+    width: 40px; 
+    height: 3px; 
+    background-color: var(--accent--color);
+    margin: 10px auto 0;
+    /* position: absolute; */
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
+}
+
+.tech-tag {
+    display: block;
+    text-align: center;
+    background-color: #eee;
+    padding: 3px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #555;
+    margin: 0 auto 30px auto;
+    width: fit-content;
+}
+
+.work-main-imgWrap {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 16px;
+    margin-bottom: 40px;
+    box-shadow: 0 0 10px #ddd;
+}
+
+.work-main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+/* 中央寄せレイアウト */
+.info-center-box, .section-box {
+    margin-bottom: 30px;
+    text-align: left; 
+    box-shadow: 0 0 10px #ddd;
+    border-radius: 10px;
+    padding: 20px 30px;
+    background: #fff;
+}
+.info-item { margin-bottom: 25px; }
+
+h3 { margin-bottom: 10px; font-size: 22px; }
+
+.section-text { 
+    color: rgb(102, 102, 102); 
+    font-family: "Shippori Mincho B1", sans-serif; 
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* ツールアイコン用スタイル */
+.tool-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    gap: 0px;
+    /* margin-top: 0px; */
+}
+
+.tool-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+.tool-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    object-fit: contain;
+}
+
+.tool-name {
+    color: rgb(102, 102, 102);
+    font-family: "Shippori Mincho B1", sans-serif;
+}
+
+/* ボタンデザイン */
+.btn-area { text-align: center; margin-top: 40px; }
+.btn-link { display: inline-block; margin-bottom: 40px; background-color: var(--base--color); color: #fff !important; padding: 12px 30px; border-radius: 30px; font-weight: bold; transition: 0.3s; text-decoration: none; box-shadow: 0 0 10px #ddd; }
+.btn-link:hover { background-color: var(--accent--color); }
+
+.back-link { display: block; color: #777; text-align: center; text-decoration: none; }
+.back-link:hover { text-decoration: underline; }
+
+@media (max-width: 768px) {
+    header {
+        padding: 16px 20px;
+    }
+    .work-detail-container h1 {
+        font-size: 24px;
+    }
+}
+@media (max-width: 568px) {
+    header {
+        padding: 10px 20px;
+    }
+    .work-detail-container h1 {
+        font-size: 20px;
+    }
+}
