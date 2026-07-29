@@ -98,7 +98,7 @@ window.addEventListener('scroll', () => {
 // document.addEventListener('DOMContentLoaded', loadWorks);
 async function loadWorks() {
     try {
-        const response = await fetch('data.json'); // パスは適宜調整してください
+        const response = await fetch('js/data.json'); // パスは適宜調整してください
         const worksData = await response.json();
         const worksContainer = document.getElementById('works-grid');
 
