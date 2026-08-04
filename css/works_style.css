@@ -119,15 +119,16 @@ header .logo a:hover { text-decoration: underline; }
     height: 1000px;
     display: flex;
     align-items: flex-start;
-    gap: 30px;
+    gap: 20px;
     padding: 20px 0;
     /* text-align: center; */
     margin-bottom: 40px;
-    justify-content: center;
+    justify-content: space-between;
 }
 .pc-wrap {
-    width: 50%;
+    width: 60%;
     height: 100%;
+    background: #fff;
     box-shadow: 0 0 10px #ddd;
     /* overflow: scroll; */
     display: flex;
@@ -138,6 +139,7 @@ header .logo a:hover { text-decoration: underline; }
 .sp-wrap {
     width: 40%;
     height: 100%;
+    background: #fff;
     box-shadow: 0 0 10px #ddd;
     /* overflow: scroll; */
     display: flex;
@@ -150,6 +152,7 @@ header .logo a:hover { text-decoration: underline; }
     flex-shrink: 0; /* 縮まないようにする */
     margin: 10px 0;
     font-family: "Alice", sans-serif;
+    font-weight: 600;
 }
 /* 画像が入る、スクロールするエリア */
 .scroll-box {
@@ -162,12 +165,16 @@ header .logo a:hover { text-decoration: underline; }
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    position: relative;
 }
+
+
 .work-pc-img {
     width: 100%;
     height: auto;
     display: block;
 }
+
 .work-sp-img {
     width: 100%;
     height: auto;
