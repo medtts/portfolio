@@ -552,7 +552,8 @@ header nav ul li a:hover {
     letter-spacing: 0.05em; /* 文字間隔を調整して高級感を出す */
 }
 
-.lab-content {
+.lab-content,
+.contact-content {
     text-align: center;
     padding: 30px;
     margin-bottom: 40px;
