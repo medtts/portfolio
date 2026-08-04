@@ -26,7 +26,7 @@
 
         /* セクション全体（各項目）のテキストを左揃えにする */
         .info-center-box, .section-box { 
-            margin-bottom: 40px; 
+            margin-bottom: 20px; 
             text-align: left;
         }
 
@@ -79,15 +79,35 @@
     </header>
 
     <div class="container work-detail-container">
-        <div class="work-main-imgWrap">
+        <!-- <div class="work-main-imgWrap">
             <img class="work-main-img" id="work-main-img" src="" alt="作品のメイン画像">
-        </div>
+        </div> -->
         <p id="work-category" class="tech-tag"></p>
         <div class="section-box">
             <h3 class="name">Title <span class="accent-sub">/ タイトル</span></h3>
             <h1 id="work-title">読み込み中...</h1>
         </div>
+        <div class="work-imgWrap">
+            <!-- PCエリア -->
+            <div class="pc-wrap">
+                <p>PC</p>
+                <div class="scroll-box">
+                    <img class="work-pc-img" id="work-pc-img" src="" alt="作品のpc画像">
+                </div>
+            </div>
+            
+            <!-- Mobileエリア -->
+            <div class="sp-wrap">
+                <p>Mobile</p>
+                <div class="scroll-box">
+                    <img class="work-sp-img" id="work-sp-img" src="" alt="作品のsp画像">
+                </div>
+            </div>
+        </div>
         
+        <div class="btn-area">
+            <a id="work-url" href="#" target="_blank" class="btn-link">Visit Website</a>
+        </div>
         
 
         <!-- Period, Role, Tools, Client をまとめたエリア（PCで2列・左揃え表示） -->
