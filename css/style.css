@@ -880,7 +880,7 @@ header nav ul li a:hover {
 /* ギャラリー */
 
 .gallery {
-    margin: 0 auto;
+    margin: 0 auto 100px auto;
     display: grid;
     /* 1つの列の最小幅を250pxとし、入り切らなくなったら自動で折り返す */
     /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
