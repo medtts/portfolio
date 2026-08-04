@@ -24,7 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 // 基本項目の反映
                 document.getElementById('work-title').textContent = data.title;
                 document.getElementById('work-category').textContent = data.category;
-                document.getElementById('work-main-img').src = data.image;
+                // document.getElementById('work-main-img').src = data.image;  
+                document.getElementById('work-pc-img').src = data.mac_image;
+                document.getElementById('work-sp-img').src = data.sp_image;
                 document.getElementById('work-period').textContent = data.period;
                 document.getElementById('work-role').textContent = data.role;
                 document.getElementById('work-concept').textContent = data.concept;
