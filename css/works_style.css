@@ -1,4 +1,4 @@
-/* --- リセット＆基本設定 --- */
+/*  リセット＆基本設定  */
 :root {
     --base--color: #1B4965;
     --accent--color: #FFB703;
@@ -20,22 +20,24 @@ header { display: flex; justify-content: space-between; align-items: center; pad
 header .logo a { text-decoration: none; font-family: "Alice", sans-serif; font-size: 20px; font-weight: 600; color: #333; }
 header .logo a:hover { text-decoration: underline; }
 
-/* --- 作品詳細のデザイン --- */
+/*  作品詳細のデザイン  */
 .work-detail-container h1 { 
     font-family: "Shippori Mincho B1", sans-serif; 
     font-weight: 600;
     font-size: 28px; 
-    /* margin-bottom: 30px;  */
     text-align: center;
     color: rgb(51, 51, 51);
 }
 
-/* タイトル下のアクセントライン：統一設定 */
+/* タイトル下のアクセントライン */
 .accent-title {
     font-family: "Alice", sans-serif;
-    position: relative;
     color: rgb(51, 51, 51);
-    display: block;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    position: relative;
+    margin-bottom: 16px;
 }
 .accent-title::after {
     content: '';
@@ -43,7 +45,17 @@ header .logo a:hover { text-decoration: underline; }
     width: 40px; 
     height: 3px; 
     background-color: var(--accent--color);
-    margin: 10px auto 0;
+    margin: 10px 0 0 0;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+}
+/* 日本語サブタイトル */
+.accent-sub {
+    font-family: "Shippori Mincho B1", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: #666;
 }
 .name {
     font-family: "Alice", sans-serif;
@@ -165,6 +177,7 @@ h3 { margin-bottom: 10px; font-size: 22px; }
     font-family: "Shippori Mincho B1", sans-serif; 
     font-size: 14px;
     line-height: 1.8;
+    text-indent: 1em;
 }
 /* ツールアイコン用スタイル */
 .tool-list {
@@ -213,5 +226,17 @@ h3 { margin-bottom: 10px; font-size: 22px; }
     }
     .work-imgWrap {
         height: 700px;
+    }
+}
+/* PCサイズの時に2列 */
+@media screen and (min-width: 768px) {
+    .info-center-box {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        text-align: left;
+    }
+    .info-center-box .info-item {
+        margin-bottom: 0;
     }
 }

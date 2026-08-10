@@ -1,21 +1,18 @@
-/* --- リセット＆基本設定 --- */
+/* リセット＆基本設定 */
 :root {
     --base--color: #1B4965;
     --accent--color: #FFB703;
     --sub--color: #CAE9FF;
     --train--color: #f39700;
 }
-
 html {
     scroll-behavior: smooth;
 }
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     font-family: "Shippori Mincho B1", serif, "M PLUS Rounded 1c", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
     color: #333;
@@ -23,34 +20,10 @@ body {
     line-height: 1.6;
     margin: 0 auto;
 }
-
-.color-a {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #E9D563;
-}
-.color-b {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #B5E2B1;
-}
-.color-c {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #89C8B1;
-}
-
 a {
     color: inherit;
     text-decoration: none;
 }
-
 p {
     font-family: "Shippori Mincho B1", serif;
     font-weight: 400;
@@ -58,7 +31,6 @@ p {
     color: #423e3e;
     line-height: 26px;
 }
-
 h1 {
     font-family: "Alice", sans-serif;
     font-weight: 400;
@@ -66,7 +38,6 @@ h1 {
     color: #333;
     
 }
-
 h3 {
     font-family: "Shippori Mincho B1", serif;
     text-align: center;
@@ -76,48 +47,28 @@ h3 {
     line-height: 16px;
     margin-bottom: 30px;
 }
-
 .container {
     max-width: 1400px;
-    /* margin: 0 0 0 150px; */
     margin: 0 auto;
     padding: 0 20px 0 200px;
 }
-
-/* --- ヘッダー --- 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}*/
-
-
-
+/* ヘッダー */
 header nav ul {
     display: flex;
     list-style: none;
 }
-
 header nav ul li {
     margin-left: 20px;
 }
-
 header nav ul li a {
     font-size: 16px;
     font-weight: 500;
     transition: color 0.3s;
 }
-
 header nav ul li a:hover {
     color: #0076df;
 }
-/* ----gnav------ */
+/* ナビゲーション */
 .g_nav {
     color: #fff;
     /* mix-blend-mode: exclusion; */
@@ -130,12 +81,11 @@ header nav ul li a:hover {
     text-align: left;
     
 }
-/*  初期状態では、スマホ専用ナビとハンバーガーは非表示（PCファースト） */
+/*  初期状態では、スマホ専用ナビとハンバーガーは非表示 */
 .sp-nav, .hamburger-btn {
     display: none !important;
 }
-
-/*  PC専用ナビのスタイル（元々のg_navの設定をそのまま引き継ぐ） */
+/*  PC専用ナビのスタイル */
 .pc-nav {
     position: fixed;
     left: 24px;
@@ -147,26 +97,18 @@ header nav ul li a:hover {
 .hamburger-btn {
     display: none;
 }
-
-/*  メニューとボタンがパッと消えるのではなく、フワッと滑らかに消えるようにする設定 */
 .g_nav, .hamburger-btn {
     transition: opacity 0.3s ease, visibility 0.3s ease, color 0.4s ease, background-color 0.4s ease;
 }
-/*  下スクロール時に付与される完全に透過（非表示）にするクラス */
 .g_nav.is-hidden,
 .hamburger-btn.is-hidden {
     opacity: 0;
-    visibility: hidden; /* 透明な時にクリックなどを反応させない設定 */
+    visibility: hidden;
 }
-/*  ただし、スマホなどでメニューを開いている間（is-open）は、スクロールしても絶対に隠さない */
 .g_nav.is-open,
 .hamburger-btn.is-open {
     opacity: 1 !important;
     visibility: visible !important;
-}
-
-.g_nav ul {
-    /* border-left: 1px solid var(--base--color) ; */
 }
 .g_nav.is-inverted,
 .g_nav.is-inverted a {
@@ -178,9 +120,6 @@ header nav ul li a:hover {
 .hamburger-btn.is-inverted:hover {
     background-color: var(--accent--color);
 }
-/* .hamburger-btn.is-inverted span {
-    background-color: var(--base--color);
-} */
 
 .g_nav li {
     list-style: none;
@@ -193,64 +132,50 @@ header nav ul li a:hover {
 .g_nav a {
     font-size: 22px;
     text-decoration: none;
-    color: inherit; /* 親のliやnavの色をそのまま使う */
+    color: inherit; 
     position: relative;
-    padding-left: 10px; /* 💡 左側に●が入るためのスペースをあらかじめ空けておく */
+    padding-left: 10px; 
     transition: all 0.3s ease;
     display: inline-block;
     transition: transform 0.3s ease, color 0.4s ease;
 }
-.g_nav li:hover {
-    
-}
 .g_nav li:hover a {
     transform: translateX(6px) scale(1.15);
-    /* text-decoration: underline; */
 }
-
-/*  JavaScriptで「.is-active」がついた項目だけ、●を表示する */
 .g_nav li.is-active::before {
     opacity: 0;
 }
 .g_nav.is-inverted li.is-active::before {
     opacity: 1;
 }
-
-/* 💡 現在地をよりスマートに伝えるため、アクティブな文字を少し太くする（お好みで） */
+/* 現在地の文字を太くする */
 .g_nav li.is-active a {
-     font-weight: bold; 
+    font-weight: bold; 
 }
-
 .stationPos, .terminalPos {
     position: relative;
 }
 .station {
     color: #ffffff;
     position: absolute;
-    /* ulの右端（50%）を基準に合わせる */
     left: 120%;
-    top: 0px; /* メニュー上部からの距離で微調整 */
-    
+    top: 0px; 
     transform: rotate(90deg);
     transform-origin: left top;
     text-align: left;
-    white-space: nowrap; /* 改行を防ぐ */
+    white-space: nowrap;
 }
-
 .terminal {
     color: #ffffff;
     position: absolute;
-    /* ulの左端（50%）を基準に合わせる */
     right: 120%;
-    bottom: 0px; /* メニュー下部からの距離で微調整 */
-    
+    bottom: 0px; 
     transform: rotate(90deg);
     transform-origin: right bottom;
     text-align: right;
     white-space: nowrap;
 }
-
-/* --- メインビジュアル (Hero) --- */
+/* メインビジュアル (Hero) */
 .hero {
     width: 100%;
     background: linear-gradient(135deg, #e0eafc, #cfdef3);
@@ -277,12 +202,10 @@ header nav ul li a:hover {
     height: 100vh;
     display: flex;
 }
-
 .hero img {
     width: 36px;
     height: 24px;
 }
-
 .hero h1 {
     font-size: 36px;
     margin-bottom: 10px;
@@ -294,48 +217,37 @@ header nav ul li a:hover {
     justify-content: flex-end;
     z-index: 100;
 }
-
 .hero p {
     font-family: "Alice", sans-serif;
     color: #fff;
     padding: 0;
     z-index: 100;
 }
-
 .hero_subtitle {
     position: absolute;
     top: 125px;
     right: 40px;
 }
-
 .hero-scroll {
     text-align: center;
     margin-bottom: 20px; 
 }
-
 /* スクロールダウンアニメーション */
 .scrollArrowPlacer {
     position: relative;
-    /* max-width: 1400px; */
-    /* margin: 0 0 0 150px; */
     margin: 0 auto;
     padding: 0 20px 0 200px;
     text-align: center;
     z-index: 100;
 }
 .scroll-down {
-    /* position: absolute; */
     display: inline-block;
     position: relative;
-    /* bottom: 0;
-    left: 50%; */
-    /* transform: translateX(-50%); */
     color: #ffffff;
     font-size: 14px;
     letter-spacing: 0.2em;
     font-weight: 300;
     height: 95px; 
-    /* text-align: center; */
 }
 .scroll-down::after {
     content: '';
@@ -345,7 +257,6 @@ header nav ul li a:hover {
     transform: translateX(-50%);
     width: 1px;
     height: 60px;
-    /* background: linear-gradient(to bottom, '#fffffff' 50%, rgba(255, 255, 255, 0) 50%); */
     background: #ffffff;
     background-size: 100% 200%;
     background-position: top;
@@ -360,13 +271,10 @@ header nav ul li a:hover {
 .scroll-down span {
     font-family: "Alice", sans-serif;
 }
-
-/* --- セクション共通スタイル --- */
+/* セクション */
 .section {
     padding: 160px 0 160px 0px;
-    /* border-bottom: 1px solid #eee; */   
 }
-
 .section-title {
     font-size: 32px;
     text-align: center;
@@ -375,7 +283,6 @@ header nav ul li a:hover {
     font-family: "Alice", sans-serif;
     font-weight: 400;
 }
-
 .section-title::after {
     content: '';
     display: block;
@@ -384,54 +291,27 @@ header nav ul li a:hover {
     background-color: var(--accent--color);
     margin: 10px auto 0;
 }
-/*  */
+/* 趣味 */
 .hobby {
     display: inline-block;
     justify-content: center;
     align-items: center;
-    
     margin-top: 200px;
     height: 24px;
     position: relative;
-}
-/* .hobby:hover::after {
-    content: '';
-    position: absolute;
-    
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: #333;
-} */
-.hobby summary {
-    list-style: none; /* デフォルトの矢印を非表示にする場合 */
-}
-.hobby summary h3 {
-    cursor: pointer;    
-}
-.hobby summary::-webkit-details-marker {
-    display: none;
-}
-/* カード内のテキストエリア */
-.hobby-text {
-    flex: 1;
 }
 .hobby-text p {
     text-align: left;
     text-indent: 1em;
     margin-bottom: 40px;
 }
-
-/* 見出しとアイコンを横並びにするラッパー */
+/* 見出しとアイコンを横並びに */
 .hobby-title-row {
     display: flex;
-    align-items: center;  /* アイコンと文字の上下を中央揃え */
-    gap: 12px;            /* アイコンと文字の間隔 */
-    margin-bottom: 8px;   /* 本文との隙間 */
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
 }
-
-/* h4の既存のmarginをリセット */
 .hobby-card h4 {
     margin-bottom: 0;
     font-family: "Alice ", serif;
@@ -439,18 +319,14 @@ header nav ul li a:hover {
     font-size: 18px;
     color: #333;
 }
-
-/* ご用意いただいた画像のスタイル（大きさを整える） */
 .hobby-icon {
-    width: 24px;          /* お好みのサイズに調整してください（例: 24px〜32px） */
+    width: 24px;
     height: 24px;
-    object-fit: contain;  /* 縦横比を崩さず収める */
-    flex-shrink: 0;       /* 画面が狭くなってもアイコンが潰れないようにする */
+    object-fit: contain; 
+    flex-shrink: 0;
 }
-
-/*  */
+/* アイキャッチ(ねこ) */
 .eyecatcher {
-    /* background: #00df64; */
     max-width: 1400px;
     margin: 0 0 0 150px;
     padding: 0 20px 0 0;
@@ -460,45 +336,52 @@ header nav ul li a:hover {
     width: 32px;
     height: 32px;
 }
-
 .flipbook-container {
-    /* background: #0076df; */
-    /* max-width: 1400px; */
     height: 32px;
-    /* margin: 0 0 0 150px; */
     margin: 0 auto;
     margin-left: 200px;
     padding: 0 20px 0 0;
     text-align: center;
     position: relative;
-    /* box-sizing: border-box; */
 }
-
-/* 2枚の画像をぴったり重ねるためのスタイル */
 .flipbook-container img {
     position: absolute;
     top: 0;
     left: 0;
     right: 20px;
     margin: 0 auto;
-    /* transform: translate(-50%, 0); */
     width: 32px;
     height: 32px;
     object-fit: cover;
 }
+.Cat-A {
+    animation: flipAnimation 1.6s infinite steps(1);
+}
+.Cat-B {
+    animation: flipAnimationB 1.6s infinite steps(1);
+}
+@keyframes flipAnimation {
+    0%, 49.9% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+@keyframes flipAnimationB {
+    0%, 49.9% { opacity: 0; }
+    50%, 100% { opacity: 1; }
+}
+
+/* 伸びねこ */
 .catStretch_container {
     height: 32px;
-    /* margin: 0 0 0 150px; */
     margin: 0 auto 100px 200px;
     padding: 0 20px 0 0;
     text-align: center;
 }
 .catStretch_container img {
     margin: 0 auto 100px auto;
-    /* transform: translate(-50%, 0); */
     width: 32px;
     height: 32px;
 }
+/* 謝辞 */
 .thankyou {
     height: 32px;
     margin: 0 auto 200px 200px;
@@ -506,60 +389,38 @@ header nav ul li a:hover {
     text-align: center;
 }
 .thankyou p {
-    /* font-style: italic; */
     font-size: 14px;
     font-weight: 600;
     color: var(--base--color);
 }
-
-/* 1枚目の画像のアニメーション設定 */
-.Cat-A {
-    animation: flipAnimation 1.6s infinite steps(1);
-}
-
-/* 2枚目の画像のアニメーション設定（1枚目と逆の動きにする） */
-.Cat-B {
-    animation: flipAnimationB 1.6s infinite steps(1);
-}
-
-/* 1枚目用の切り替えパターン（前半表示、後半非表示） */
-@keyframes flipAnimation {
-    0%, 49.9% { opacity: 1; }
-    50%, 100% { opacity: 0; }
-}
-
-/* 2枚目用の切り替えパターン（前半非表示、後半表示） */
-@keyframes flipAnimationB {
-    0%, 49.9% { opacity: 0; }
-    50%, 100% { opacity: 1; }
-}
-
-/* --- 自己紹介 (About) --- */
+/* 各コンテンツ */
 .about-content,
 .philosophy-content,
 .skills-content {
     text-align: center;
-    padding: 40px 20px; /* 左右に少し余白を設ける */
-    max-width: 700px;   /* 文章が横に広がりすぎないように制限 */
+    padding: 40px 20px; 
+    max-width: 700px;
     margin: 0 auto;
 }
 .skills-content { margin-bottom: 120px; }
 .about-content p,
 .philosophy-content p,
 .skills-content p {
-    line-height: 2.0;    /* 行間を広めにし、心地よいリズムに */
-    font-size: 16px;     /* スマホでも読みやすいサイズ */
-    letter-spacing: 0.05em; /* 文字間隔を調整して高級感を出す */
+    line-height: 2.0;
+    font-size: 16px;
+    letter-spacing: 0.05em;
 }
-
 .lab-content,
 .contact-content {
     text-align: center;
     padding: 30px;
     margin-bottom: 40px;
 }
-
-/* --- 経歴 (Career) --- */
+.lab-content a {
+    color: var(--base--color);
+    text-decoration: underline;
+}
+/* 経歴 (Career) */
 .timeline {
     border-left: 2px solid var(--base--color) ;
     padding-left: 20px;
@@ -567,13 +428,11 @@ header nav ul li a:hover {
     margin-left: 20px;
     max-width: 700px;
 }
-
 .timeline-item {
     position: relative;
     margin-left: 0px;
     margin-bottom: 30px;
 }
-
 .timeline-item::before {
     content: '';
     position: absolute;
@@ -584,14 +443,12 @@ header nav ul li a:hover {
     border-radius: 50%;
     background-color: var(--base--color) ;
 }
-
 .timeline-item .date {
     font-size: 15px;
     color: #777777;
     font-weight: bold;
     margin-left: 10px;
 }
-
 .timeline-item h4 {
     font-family: "Shippori Mincho B1", serif;
     font-weight: 400;
@@ -601,82 +458,56 @@ header nav ul li a:hover {
 .timeline-item p {
     margin-left: 10px;
 }
-
-/* --- 使用可能ソフト (Skills) --- */
+/* 使用可能ソフト (Skills) */
 .skills-grid {
     display: grid;
-    /* 横並びになって幅が狭くなる分、最小幅を 250px から 300px に広げると綺麗に収まります */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
-
 .skill-card {
-    /* background-color: #fff; */
     padding: 25px;
     border-radius: 16px;
-    /* box-shadow: 0 4px 15px rgba(0,0,0,0.03); */
-    
-    /* 👇 ここから重要：中身（アイコンとテキスト）を横並びにする */
     display: flex;
-    align-items: flex-start; /* 上下中央揃えにする（可愛い雰囲気に合います） */
-    text-align: left;    /* テキストを左揃えにする */
+    align-items: flex-start; 
+    text-align: left;   
 }
-
 .skill-icon {
-    width: 70px;         /* 横並び用に少しだけコンパクト（60px）に調整 */
+    width: 70px;   
     height: 70px;
-    margin-right: 20px;  /* 💡 中央揃えのmarginを消し、右側（テキストとの間）に余白を作る */
-    flex-shrink: 0;      /* 横幅が狭くなってもアイコン画像が潰れないようにするお守り */
+    margin-right: 20px;  
+    flex-shrink: 0;   
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 .skill-icon img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    /* border: 1px dashed #bbbbbb; */
-    
     border-radius: 12px;
     padding: 6px 6px;
 }
-
-/* 👇 テキストブロック用のスタイル */
 .skill-text {
-    flex: 1; /* 残りの横幅をいっぱいに使う設定 */
+    flex: 1; 
 }
-
 .skill-card h4 {
     font-family: "Alice", sans-serif;
-    font-size: 22px;   /* 横並びなので少しだけスマートなサイズに */
-    margin-bottom: 5px;  /* 下の文章との隙間を少し狭く */
+    font-size: 22px;  
+    margin-bottom: 5px; 
     color: #333;
     font-weight: 600;
 }
-
 .skill-card p {
     font-size: 16px;
     color: #666;
     line-height: 24px;
 }
-
 /* --- 作品 (Works) --- */
 .works-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
 }
-
-.mockup-container:hover  {
-    transform: translateY(-3px);
-    transition: transform 0.3s;
-}
-.mockup-container:hover .mockup-body, 
-.mockup-container:hover .mockup-iphone {
-    filter: drop-shadow(0 0px 8px rgba(0, 0, 0, 0.25));
-}
-
 .work-card {
     background-color: #fff;
     border-radius: 8px;
@@ -684,14 +515,12 @@ header nav ul li a:hover {
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     transition: transform 0.3s;
 }
-
 .work-card:hover {
     transform: translateY(-5px);
 }
-
 .work-image-wrapper {
     width: 100%;
-    aspect-ratio: 16 / 9; /* 横長に統一 */
+    aspect-ratio: 16 / 9;
     background-color: #424242;
     overflow: hidden;
 }
@@ -700,36 +529,30 @@ header nav ul li a:hover {
     height: 100%;
     object-fit: contain;
 }
-
 .work-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 枠いっぱいに綺麗に収める */
+    object-fit: cover; 
 }
-
 .work-info {
     padding: 20px;
-    
+    text-align: left;
 }
-
 .work-info h4 {
     font-family: "Shippori Mincho B1", serif;
     font-weight: 600;
     font-size: 20px;
     margin-bottom: 8px;
 }
-
 .work-info p {
     font-size: 14px;
     color: #666;
     margin-bottom: 12px;
 }
-
 .work-footer {
     display: flex;
     justify-content: space-between;
 }
-
 .tech-tag {
     display: inline-block;
     background-color: var(--sub--color);
@@ -742,8 +565,6 @@ header nav ul li a:hover {
 .detail {
     position: relative;
     display: inline-block;
-    /* background-color: var(--accent--color); */
-    /* border: 1px solid var(--accent--color); */
     padding: 3px 10px;
     margin-left: 20px;
     border-radius: 4px;
@@ -756,47 +577,100 @@ header nav ul li a:hover {
     position: absolute;
     left: 9px;
     bottom: 0;
-    width: 80%;       /* 線の横幅（100%） */
-    height: 2px;       /* 線の太さ */
-    background-color: var(--accent--color); /* 線の色（サイトの雰囲気に合わせて変えてね） */
-    
-    transform: scaleX(0);       /* 最初は横幅を「ゼロ」にして見えなくする */
-    transform-origin: left;     /* 左側を起点にして伸びるようにする */
-    transition: transform 0.3s ease; /* 0.3秒かけて滑らかに動かす */
+    width: 80%;      
+    height: 2px;      
+    background-color: var(--accent--color); 
+    transform: scaleX(0);     
+    transform-origin: left;  
+    transition: transform 0.3s ease; 
 }
 .detail:hover::after {
     transform: scaleX(1);
 }
 
+
+/* 3Dワールドの写真 */
+.world-wrap {
+    width: 100%;
+    padding: 0 20px;
+    margin-bottom: 100px;
+}
+.world-img-left {
+    margin-right: auto;
+    margin-left: 0;
+    margin-bottom: 5px;
+}
+.world-img-right {
+    margin-left: auto;
+    margin-right: 0;
+}
+.world-img-wrap {
+    overflow: hidden; 
+    max-width: 960px;   
+    width: 100%;
+}
+.world-img-wrap img {
+    width: 100%;
+    display: block;
+    transition: transform 0.3s ease; 
+}
+.world-img-wrap:hover img {
+    transform: scale(1.05); 
+}
+/* 動画 */
+.movie-title {
+    margin-top: 100px;
+    margin-bottom: 30px;
+}
+.movie-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.movie-card {
+    max-width: 960px;
+    min-width: 320px;
+}
+.movie {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    align-items: center;
+    border-radius: 10px;
+}
+
+
 /* モックアップ */
 /* 2つの画像をまとめる親コンテナ */
 .mockup-container {
-  position: relative; /* これが子要素の配置の基準点になります */
-  display: inline-block; /* 画像の横幅に合わせる */
-  max-width: 100%;       /* レスポンシブ対応 */
+  position: relative; 
+  display: inline-block; 
+  max-width: 100%; 
 }
-
-/* 土台のiMac画像 */
+.mockup-container:hover  {
+    transform: translateY(-3px);
+    transition: transform 0.3s;
+}
+.mockup-container:hover .mockup-body, 
+.mockup-container:hover .mockup-iphone {
+    filter: drop-shadow(0 0px 8px rgba(0, 0, 0, 0.25));
+}
+/* MacBookフレーム画像 */
 .mockup-body {
   display: block;
   width: 100%;
   height: auto;
 }
-
-/* 画面部分を切り取る枠組み */
+/* MacBookの画面部分を切り取る枠組み */
 .screen-content {
-  position: absolute; /* 親要素を基準に絶対配置 */
-  
-  /* ---- 【重要】ここをお手元のiMac画像に合わせて微調整します ---- */
+  position: absolute; 
   top: 10.2%;    /* 上からの位置 */
   left: 12.8%;   /* 左からの位置 */
   width: 74.5%; /* 画面部分の横幅 */
   height: 76.9%;  /* 画面部分の縦幅 */
-  /* -------------------------------------------------------- */
-
-  overflow: hidden; /* 枠からはみ出た画像を隠す */
+  overflow: hidden;
 }
-
 /* 画面の中に表示する画像 */
 .screen-content img {
   width: 100%;
@@ -804,41 +678,31 @@ header nav ul li a:hover {
   object-fit: cover; 
   object-position: center top;
 }
-
 /* ---  iPhoneモックアップの重ね合わせ設定 --- */
-
 /* iPhoneのコンテナをMacBookの右下に絶対配置 */
 .mockup-iphone {
     position: absolute;
-    bottom: -5%;   /* MacBookの下端から少しはみ出すくらいの位置（微調整してください） */
-    right: -2%;    /* MacBookの右端から少しはみ出すくらいの位置（微調整してください） */
-    width: 24%;    /* MacBookに対するiPhoneのサイズ（大きすぎる場合は20%等に小さくしてください） */
-    z-index: 5;    /* MacBookより前面に重ねる */
-    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.15)); /* 重なりを強調する自然な影 */
+    bottom: -5%;   /* MacBookの下端から */
+    right: -2%;    /* MacBookの右端から */
+    width: 24%;    /* MacBookに対するiPhoneのサイズ */
+    z-index: 5;    /* MacBookより前面に */
+    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.15)); 
 }
-
-/* 土台のiPhoneフレーム画像 */
+/* iPhoneフレーム画像 */
 .iphone-body {
     display: block;
     width: 100%;
     height: auto;
 }
-
 /* iPhoneの画面部分を切り取る枠組み */
 .iphone-screen {
     position: absolute;
-    
-    /* ⚠️ お手元の「iPhoneFramewebp」の画面部分の黒枠に合わせてここを微調整してください */
     top: 16.5%;      /* 上からの位置 */
     left: 12.0%;     /* 左からの位置 */
     width: 77%;     /* 画面部分の横幅 */
     height: 67.8%;    /* 画面部分の縦幅 */
-    /* ------------------------------------------------------------- */
-    
-    border-radius: 3% / 1.5%; /* 画面の角が丸い場合は少し丸みをつける（不要なら削除） */
     overflow: hidden;
 }
-
 /* iPhone画面の中に表示する画像 */
 .iphone-screen img {
     width: 100%;
@@ -846,12 +710,11 @@ header nav ul li a:hover {
     object-fit: cover;
     object-position: center top;
 }
-
-/* iMac */
+/* iMacフレーム画像 */
 .mockup-imac {
-    position: relative; /* これが子要素の配置の基準点になります */
-    display: inline-block; /* 画像の横幅に合わせる */
-    max-width: 100%;       /* レスポンシブ対応 */
+    position: relative; 
+    display: inline-block; 
+    max-width: 100%;       
     margin-bottom: -50px;
 }
 .imac-body {
@@ -860,16 +723,12 @@ header nav ul li a:hover {
     height: auto;
 }
 .imac-screen {
-    position: absolute; /* 親要素を基準に絶対配置 */
-  
-    /* ---- 【重要】ここをお手元のiMac画像に合わせて微調整します ---- */
+    position: absolute; 
     top: 18.3%;    /* 上からの位置 */
     left: 9.6%;   /* 左からの位置 */
     width: 80.8%; /* 画面部分の横幅 */
     height: 45.5%;  /* 画面部分の縦幅 */
-    /* -------------------------------------------------------- */
-
-     overflow: hidden; /* 枠からはみ出た画像を隠す */
+     overflow: hidden; 
 }
 .imac-screen img {
     width: 100%;
@@ -877,208 +736,165 @@ header nav ul li a:hover {
     object-fit: cover;
     object-position: center top;
 }
-
 /* ギャラリー */
-
 .gallery {
     margin: 0 auto 100px auto;
     display: grid;
-    /* 1つの列の最小幅を250pxとし、入り切らなくなったら自動で折り返す */
-    /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
     grid-template-columns: repeat(3, 1fr);
-    gap: 5px; /* 写真と写真の間の余白 */
+    gap: 5px; 
     padding: 16px;
 }
-
 .gallery-item {
     width: 100%;
     overflow: hidden;
     cursor: zoom-in;
 }
-
 .gallery-item img {
     width: 100%;
     aspect-ratio: 16 / 9;
-    object-fit: cover;    /* 縦横比を維持したまま枠に綺麗に収める */
-    /* border-radius: 8px;    */
+    object-fit: cover;    
     display: block;
     transition: transform 0.2s ease-out;
 }
-
 .gallery-item.tall {
-  grid-row: span 2; /* 縦に2行分の高さを占有する */
+    grid-row: span 2; /* 縦に2行分の高さを占有する */
 }
 .gallery-item.tall img {
-  height: 100%;         /* 高さを親のグリッドの高さに合わせる */
+    height: 100%;         /* 高さを親のグリッドの高さに合わせる */
 }
-
 .gallery-item:hover img {
     transform: scale(1.1);
 }
-
-/* --- モーダル全体の初期設定（非表示） --- */
+/* ギャラリーのモーダル(背景) */
 .lightbox {
-  display: none;             /* 最初は非表示 */
-  position: fixed;           /* 画面に固定 */
-  z-index: 999;              /* 一番手前に表示 */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8); /* 背景を黒く透過させる */
-  justify-content: center;
-  align-items: center;
+    display: none;         
+    position: fixed;     
+    z-index: 999;         
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); 
+    justify-content: center;
+    align-items: center;
 }
-
-/* --- モーダルが開いたとき（activeクラス付与時） --- */
+/* モーダルが開いたとき */
 .lightbox.active {
-  display: flex;             /* フレックスボックスで中央配置 */
+    display: flex;      
 }
-
 .lightbox-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;       /* ← これで中身（画像やテキスト）が必ず水平中央に揃います */
-  max-width: 80%;
-  text-align: center;        /* テキストも中央揃えにする */
+    display: flex;
+    flex-direction: column;
+    align-items: center;     
+    max-width: 80%;
+    text-align: center;     
 }
-
-/* --- 拡大表示される画像 --- */
+/* 拡大表示される画像 */
 .lightbox-img {
-  max-width: 90%;
-  max-height: 90vh;
-  object-fit: contain;
-  border-radius: 4px;
-
-  background-color: #fff; /* 白い縁取りの背景色 */
-  padding: 10px 10px 40px 10px;          /* 写真と白い枠の間の余白（太さ） */
-  border: 1px solid #ccc; /* 白い枠の外側にうすい線（お好みで） */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* 枠に影をつけて浮き上がらせる */
-  border-radius: 1px;     /* 枠の角をわずかに丸くする */
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 4px;
+    background-color: #fff; 
+    padding: 10px 10px 40px 10px;   
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); 
+    border-radius: 1px;   
 }
 .lightbox-caption {
     font-family: "Shippori Mincho B1", serif;
-  color: #fff;           /* 黒背景なので文字は白 */
-  margin-top: 15px;      /* 画像と文字の間の隙間 */
-  font-size: 16px;
-  text-align: center;
+    color: #fff;   
+    margin-top: 15px;   
+    font-size: 16px;
+    text-align: center;
 }
-
-/* --- 閉じるボタン（×） --- */
+/* 閉じるボタン */
 .lightbox .close {
     position: absolute;
-  top: 15px;
-  right: 30px;
-
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  color: #fff;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
+    top: 15px;
+    right: 30px;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
 }
-/* --- ▼ ここから左右ボタンの共通スタイル ▼ --- */
+/* ここから左右ボタンの共通スタイル */
 .lightbox-btn {
-  position: absolute;       /* パネル内での絶対位置 */
-  top: 50%;                 /* 画面の垂直中央へ */
-  transform: translateY(-50%); /* 自身の高さ分だけ上にずらして完全中央へ */
-  color: #fff;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
-  user-select: none;        /* 文字選択を無効にする */
-  padding: 0px;            /* クリックエリアを広げる */
-  z-index: 10;              /* 画像より手前に表示 */
-  /* background-color: rgba(0,0,0,0.2); */
-  border-radius: 50%;
+    position: absolute; 
+    top: 50%;            
+    transform: translateY(-50%); 
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;       
+    padding: 0px;            
+    z-index: 10;          
+    border-radius: 50%;
 }
-
 .lightbox-btn:hover {
-  /* background-color: rgba(255,255,255,0.2);  */
-  color: var(--accent--color);
+    color: var(--accent--color);
 }
-
-/* --- 個別の位置設定 --- */
 .prev {
-  left: 20px; /* 左端から20px */
+    left: 20px; 
 }
-
 .next {
-  right: 20px; /* 右端から20px */
+    right: 20px; 
 }
 
 /* --- トップに戻るボタン --- */
 .scroll-top-btn {
     position: fixed;
-    bottom: 10px;    /* 画面の下から30pxの位置 */
-    right: 10px;     /* 画面の右から30pxの位置 */
+    bottom: 10px;  
+    right: 10px;     
     width: 48px;
     height: 48px;
-    background-color: var(--base--color); /* 💡 サイトのテーマに合わせた優しいブラウン（自由に変えてね） */
-    color: #ffffff;            /* 矢印の色（白） */
+    background-color: var(--base--color); 
+    color: #ffffff;         
     border: none;
-    border-radius: 50%;        /* まんまるのボタンにする */
-    font-family: "Shippori Mincho B1", serif; /* フォントを統一 */
+    border-radius: 50%;     
+    font-family: "Shippori Mincho B1", serif; 
     font-size: 20px;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* ほんのり影をつけて立体感 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
     
-    /* アニメーション用の設定 */
-    opacity: 0;                /* 最初は透明にしておく */
-    visibility: hidden;        /* 最初はクリックもできないように隠す */
-    transition: opacity 0.3s, visibility 0.3s; /* フワッと変化させる */
-    z-index: 999;             /* 他の要素の一番上に表示する *
-    
-    /* アニメーション用の設定 */
-    opacity: 0;                /* 最初は透明 */
-    visibility: hidden;        /* 最初は非表示 */
-    
-    /* 💡 変更： transform も一緒に滑らかに動かすために all に変えるか、以下のように追記します */
+    opacity: 0;            
+    visibility: hidden;      
+    z-index: 999;          
     transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.2s;
 }
-
-/* ボタンにマウスを載せたとき（ホバー時）の動き */
 .scroll-top-btn:hover {
-    background-color: var(--accent--color) ; 
+    background-color: var(--accent--color); 
     transform: translateY(-3px); 
     transition: all 0.2s;
 }
-
-/* 💡 JavaScriptでこのクラスが追加されたら、フワッと表示される */
 .scroll-top-btn.is-show {
     opacity: 1;
     visibility: visible;
 }
 
-/* ==========================================
-   📩 お問い合わせフォーム（Contact）
-   ========================================== */
+/* お問い合わせフォーム（Contact） */
 .contact-wrapper {
-    max-width: 600px; /* フォームが広がりすぎないように制限 */
+    max-width: 600px;
     margin: 0 auto;
     padding: 0 10px;
 }
-
 .contact-lead {
     text-align: center;
     margin-bottom: 40px;
     font-size: 14px;
 }
-
 .contact-form {
     max-width: 800px;
     margin: 0 auto;
-    /* background-color: #ffffff; */
     padding: 40px;
     border-radius: 16px;
-    /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); */
 }
-
 .form-group {
     margin-bottom: 24px;
 }
-
 .form-label {
     display: flex;
     align-items: center;
@@ -1088,8 +904,6 @@ header nav ul li a:hover {
     color: #555;
     margin-bottom: 8px;
 }
-
-/* 必須・任意バッジの共通設定 */
 .form-label span {
     font-size: 11px;
     padding: 2px 6px;
@@ -1097,21 +911,15 @@ header nav ul li a:hover {
     margin-left: 10px;
     font-weight: normal;
 }
-
-/* 必須バッジ：アクセントカラーを背景に */
 .form-label .required {
     background-color: var(--accent--color);
     background-color: #ffdb80;
     color: #333;
 }
-
-/* 任意バッジ：薄いグレー */
 .form-label .optional {
     background-color: #eee;
     color: #666;
 }
-
-/* 入力欄（input, textarea）のスタイル */
 .form-control {
     width: 100%;
     padding: 12px 16px;
@@ -1124,7 +932,6 @@ header nav ul li a:hover {
     transition: all 0.3s ease;
     box-sizing: border-box;
 }
-
 /* 入力欄にフォーカス（クリック）したとき */
 .form-control:focus {
     outline: none;
@@ -1132,24 +939,20 @@ header nav ul li a:hover {
     background-color: #f6f6f6;
     box-shadow: 0 0 0 3px rgba(27, 73, 101, 0.1); /* ふんわり光る効果 */
 }
-
-/* プレースホルダー（薄い初期文字）の色 */
+/* プレースホルダーの色 */
 .form-control::placeholder {
     color: #999;
 }
-
-/* テキストエリアの縦サイズ変更を「縦方向のみ」に制限 */
+/* テキストエリアのサイズ変更を縦方向のみに制限 */
 textarea.form-control {
     resize: vertical;
 }
-
 /* 送信ボタンエリア */
 .form-submit {
     text-align: center;
     margin-top: 32px;
 }
-
-/* 送信ボタン本体（トップに戻るボタンとホバー時の動きを統一） */
+/* 送信ボタン */
 .submit-btn {
     display: inline-block;
     min-width: 180px;
@@ -1160,37 +963,31 @@ textarea.form-control {
     font-size: 15px;
     font-weight: bold;
     border: none;
-    border-radius: 30px; /* 丸みのある可愛いボタン */
+    border-radius: 30px;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.2s;
 }
-
-/* ボタンにホバーしたとき */
 .submit-btn:hover {
     background-color: var(--accent--color);
     color: #333;
-    transform: translateY(-3px); /* ほんのり上に浮かぶ */
+    transform: translateY(-3px); 
 }
 
-
-/* --- フッター --- */
+/* フッター */
 footer {
     text-align: center;
     padding: 30px 20px;
     background-color: var(--base--color);
     margin-top: 40px;
 }
-
 footer p {
     padding-left: 200px;
     font-size: 10px;
     color: #ffffff ;
 }
 
-/* ==========================================================================
-   1. 共通設定・リセット関連
-   ========================================================================== */
+/* ページ幅変更時のアニメーション制御 */
 .resize-animation-stopper,
 .resize-animation-stopper *,
 .resize-animation-stopper *::before,
@@ -1199,15 +996,12 @@ footer p {
     animation: none !important;
 }
 
-/* ==========================================================================
-   2. スマホ・タブレット用 (max-width: 768px)
-   ========================================================================== */
+/* スマホ・タブレット用 */
 @media (max-width: 768px) {
-    /* --- 基本レイアウト調整 --- */
+    /* 基本レイアウト調整 */
     header { flex-direction: column; padding: 0px; }
     header nav ul { margin-top: 10px; }
     header nav ul li { margin: 0 10px; }
-
     .container, .scrollArrowPlacer, .eyecatcher, 
     .flipbook-container, .catStretch_container, .thankyou {
         margin: 0 auto;
@@ -1216,26 +1010,20 @@ footer p {
     .catStretch_container, .thankyou {
         margin-bottom: 100px;
     }
-
     /* --- コンポーネント調整 --- */
-
     .flipbook-container img { right: 0; }
     .skill-icon { width: 48px; height: 48px; }
     .timeline-item h4 { font-size: 16px; }
-
     .contact-form { padding: 24px 20px; }
     .submit-btn { width: 100%; }
-
-    /* --- ナビゲーション制御 --- */
+    /* ナビゲーション制御 */
     .pc-nav { display: none !important; }
-
     .g_nav {
         position: fixed; top: 0; left: 0; right: 0; width: 100%; height: 100vh;
         background-color: rgba(27, 73, 101, 0); pointer-events: none; z-index: 9999;
         transition: background-color 0.4s ease; transform: none;
     }
     .g_nav.is-open { pointer-events: auto; background-color: var(--base--color); }
-
     .g_nav ul {
         width: 100%; height: 100%; display: flex; flex-direction: column;
         align-items: center; justify-content: center; text-align: center;
@@ -1244,20 +1032,17 @@ footer p {
         position: relative;
     }
     .g_nav.is-open ul { opacity: 1; visibility: visible; transform: translateY(0); }
-    
     .g_nav ul::before, .g_nav ul::after {
         content: ''; position: absolute;  width: 1px; height: 90vh; background: rgba(255, 255, 255, 0.75);
     }
     .g_nav ul::before { top: 10%; left: 30%; }
     .g_nav ul::after { bottom: 10%; right: 30%; }
-
     .g_nav li { margin: 10px 0; padding: 6px 0; width: 50%; background: rgba(255, 255, 255, 0.1); }
     .g_nav li::before, .g_nav li::after { content: ''; position: absolute; left: 0; width: 100%; height: 1px; background: #ffffff; }
     .g_nav li::before { top: 0; }
     .g_nav li::after { bottom: 0px; }
     .g_nav a { font-size: 20px; color: #fff !important; padding-left: 0; }
-
-    /* --- ハンバーガーボタン --- */
+    /* ハンバーガーボタン */
     .hamburger-btn {
         display: flex !important; position: fixed; top: 10px; left: 10px; width: 48px; height: 48px;
         background: none; border: none; border-radius: 50%; cursor: pointer; z-index: 10000;
@@ -1267,8 +1052,7 @@ footer p {
     .hamburger-btn.is-open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     .hamburger-btn.is-open span:nth-child(2) { opacity: 0; }
     .hamburger-btn.is-open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
-    /* --- スマホ専用ナビ統合 --- */
+    /* スマホ専用ナビ統合 */
     .sp-nav {
         display: block !important; position: fixed; top: 0; left: 0; right: 0; width: 100%; height: 100vh;
         opacity: 0; visibility: hidden; background-color: rgba(27, 73, 101, 0); pointer-events: none;
@@ -1281,7 +1065,6 @@ footer p {
         transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
     }
     .sp-nav.is-open ul { opacity: 1; visibility: visible; transform: translateY(0); }
-
     .gallery {
         grid-template-columns: repeat(2, 1fr);
         gap: 2px;
@@ -1291,44 +1074,33 @@ footer p {
     }
 }
 
-/* ==========================================================================
-   3. スマホ統合微調整 (max-width: 568px)
-   ========================================================================== */
+/* スマホ微調整 */
 @media (max-width: 568px) {
-    /* 600pxの設定をこちらへ統合 */
     header { flex-direction: column; padding: 0px; }
     header nav ul { margin-top: 10px; }
     header nav ul li { margin: 0 10px; }
     .hero h1 { font-size: 28px; }
-
-    /* 元々の568px設定 */
     .hero { background-image: url(../image/top-mobile.webp); background-position: center top; background-size: cover; }
     .hero h1 { position: absolute; top: 80px; right: 40px; }
     .hero_subtitle { font-size: 12px; position: absolute; top: 110px; right: 40px; }
     .hero-scroll { text-align: center; margin-bottom: 120px; }
-
     .pc-only { display: none; }
     .sp-only { display: block; }
-
     .about-content, .philosophy-content, .skills-content { padding: 40px 20px; text-align: left; }
     .about-content p, .philosophy-content p, .skills-content p { font-size: 14px; line-height: 1.8; letter-spacing: 0.05em; }
-
 }
 
-/* ==========================================================================
-   4. PC用 (min-width: 768px)
-   ========================================================================== */
+/* PC用 */
 @media (min-width: 768px) {
     .hidePc { display: none; }
-
     .g_nav li::before {
         content: ''; display: inline-block; background-image: url(../image/paw.webp); background-size: contain;
         vertical-align: middle; width: 16px; height: 16px; position: absolute; left: -6px; top: 50%;
         transform: translateY(-50%); font-size: 10px; opacity: 0; transition: opacity 0.3s ease;
     }
 }
+/* スマホ以外用 */
 @media (min-width: 568px) {
-    
     .pc-only { display: block; }
     .sp-only { display: none; }
 }
