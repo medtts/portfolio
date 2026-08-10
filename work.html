@@ -4,72 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Works | Tatsushi Maeda Portfolio</title>
-        <link rel="icon" type="image/png" href="image/paw.webp">
-
+    <link rel="icon" type="image/png" href="image/paw.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alice&family=Shippori+Mincho+B1:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/works_style.css">
-    <style>
-        /* PCサイズ（768px以上）の時に info-center-box 内を2列にする設定（左揃え） */
-        @media screen and (min-width: 768px) {
-            .info-center-box {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 30px;
-                text-align: left;
-            }
-            .info-center-box .info-item {
-                margin-bottom: 0;
-            }
-        }
-
-        /* セクション全体（各項目）のテキストを左揃えにする */
-        .info-center-box, .section-box { 
-            margin-bottom: 20px; 
-            text-align: left;
-        }
-
-        /* 文章の先頭を一文字空け（インデント）にする設定 */
-        .section-text {
-            text-indent: 1em;
-        }
-
-        /* 英語と日本語を横並びにするスタイル */
-        .accent-title {
-            display: inline-flex;
-            align-items: baseline;
-            gap: 8px;
-            position: relative;
-            margin-bottom: 16px;
-        }
-        
-        /* 下線（アクセントライン）を左側に配置 */
-        .accent-title::after {
-            content: '';
-            display: block;
-            width: 40px; 
-            height: 3px; 
-            background-color: var(--accent--color);
-            margin: 10px 0 0 0;
-            position: absolute;
-            left: 0;
-            bottom: -6px;
-        }
-
-        /* 日本語サブタイトルのフォント設定 (Shippori Mincho B1 - 600) */
-        .accent-sub {
-            font-family: "Shippori Mincho B1", sans-serif;
-            font-weight: 600;
-            font-size: 14px;
-            color: #666;
-        }
-
-        /* ツールのリストはインデント不要なため除外 */
-        .tool-list {
-            justify-content: flex-start;
-        }
-    </style>
 </head>
 <body>
 
@@ -77,6 +16,8 @@
         <a href="index.html#works" class="back-link">← Back</a>      
         <div class="logo"><a href="index.html">Tatsushi Maeda Portfolio</a></div>
     </header>
+
+    <main>
 
     <div class="container work-detail-container">
         <!-- <div class="work-main-imgWrap">
@@ -162,12 +103,19 @@
             <p id="work-outlook" class="section-text">-</p>
         </div>
 
+        <div class="section-box">
+            <h3 class="accent-title">Author's Note <span class="accent-sub">/ 制作後記</span></h3>
+            <p id="work-note" class="section-text">-</p>
+        </div>
+
         <div class="btn-area">
             <a id="work-url" href="#" target="_blank" class="btn-link">Visit Website</a>
         </div>
 
         <a href="index.html#works" class="back-link">← Back to Works</a>
     </div>
+
+    </main>
 
     <script src="js/works_script.js"></script>
 </body>
