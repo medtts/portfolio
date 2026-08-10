@@ -30,15 +30,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('work-period').textContent = data.period;
                 document.getElementById('work-role').textContent = data.role;
                 document.getElementById('work-concept').textContent = data.concept;
-                
-                // 各項目の反映
                 document.getElementById('work-client').textContent = data.client || '-';
                 document.getElementById('work-purpose').textContent = data.purpose || '-';
                 document.getElementById('work-target').textContent = data.target || '-';
                 document.getElementById('work-ingenuity').textContent = data.ingenuity || '-';
                 document.getElementById('work-challenge').textContent = data.challenge || '-';
                 document.getElementById('work-outlook').textContent = data.outlook || '-';
-
+                document.getElementById('work-note').textContent = data.note || '-';
                 // リンク先の設定
                 const urlBtn = document.getElementById('work-url');
                 if (data.url) {

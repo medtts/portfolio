@@ -1,9 +1,9 @@
 // ==========================================================================
-// 💡 1. 要素の取得と初期設定
+// 要素の取得と初期設定
 // ==========================================================================
 const scrollTopBtn = document.getElementById('scrollTopBtn');
-const h1Title = document.querySelector('.pc-nav');      // PC用ナビ
-const spNav = document.querySelector('.sp-nav');        // スマホ用ナビ
+const h1Title = document.querySelector('.pc-nav');    
+const spNav = document.querySelector('.sp-nav');   
 const hamburgerBtn = document.querySelector('.hamburger-btn');
 const navLinks = document.querySelectorAll('.g_nav a');
 const worksSection = document.querySelector('#hero');
@@ -12,12 +12,12 @@ const worksSection = document.querySelector('#hero');
 let lastScrollY = window.scrollY;
 
 // ==========================================================================
-// 💡 2. 画面スクロール時の制御（上下判定と各ボタンの表示非表示）
+// 画面スクロール時の制御（上下判定と各ボタンの表示非表示）
 // ==========================================================================
 window.addEventListener('scroll', () => {
     const currentScrollY = window.scrollY;
 
-    // --- ① トップに戻るボタンの制御 ---
+    //  トップに戻るボタンの制御 
     if (currentScrollY > 300) {
         // 画面サイズに関係なく（PC・スマホ共通）、上下スクロールで表示・非表示を切り替える
         if (currentScrollY < lastScrollY) {
@@ -29,7 +29,7 @@ window.addEventListener('scroll', () => {
         scrollTopBtn.classList.remove('is-show'); // 300px未満は非表示
     }
 
-    // --- ② ナビゲーションとハンバーガーボタンの非表示制御 ---
+    //  ナビゲーションとハンバーガーボタンの非表示制御 
     // 背景が反転（Heroを抜けた状態）しているときだけ実行
     if (h1Title.classList.contains('is-inverted') || spNav.classList.contains('is-inverted')) {
         
@@ -54,58 +54,16 @@ window.addEventListener('scroll', () => {
     lastScrollY = currentScrollY;
 });
 
-// ==========================================================================
-// 💡 3. JSONデータの読み込みと作品カードの生成
-// ==========================================================================
-// const worksContainer = document.getElementById('works-grid');
-
-// async function loadWorks() {
-//     try {
-//         const response = await fetch('../js/data.json');
-//         const worksData = await response.json();
-
-//         worksData.forEach(work => {
-//             const copyrightHTML = work.isFanArt 
-//                 ? `<p class="work-copyright">${work.copyright}（ファンアート）</p>` 
-//                 : '';
-
-//             const workCard = `
-//                 <a href="work.html?id=${work.id}" class="work-card-link" style="display: block; color: inherit;">
-//                     <div class="work-card">
-//                         <div class="work-image-wrapper">
-//                             <img src="${work.image}" alt="${work.title}" class="work-image" loading="lazy">
-//                         </div>
-//                         <div class="work-info">
-//                             <h4>${work.title}</h4>
-//                             <p>${work.description}</p>
-//                             <span class="tech-tag">${work.category}</span>
-//                             <span class="tech-tag">${work.tools}</span>
-//                             ${copyrightHTML}
-//                         </div>
-//                     </div>
-//                 </a>  
-//             `;
-//             worksContainer.insertAdjacentHTML('beforeend', workCard);
-//         });
-//     } catch (error) {
-//         console.error('データの読み込みに失敗しました：', error);
-//         if (worksContainer) {
-//             worksContainer.innerHTML = '<p>作品データの読み込み中にエラーが発生しました。</p>';
-//         }
-//     }
-// }
-
-// document.addEventListener('DOMContentLoaded', loadWorks);
 async function loadWorks() {
     try {
-        const response = await fetch('js/data.json'); // パスは適宜調整してください
+        const response = await fetch('js/data.json'); 
         const worksData = await response.json();
         const worksContainer = document.getElementById('works-grid');
 
         worksData.forEach(work => {
             const workCard = `
                 <div class="work-card-link" style="display: block; color: inherit;">
-                    <div class="mockup-container">
+                    <div class="mockup-container"><a href="work.html?id=${work.id}" class="">
                         <img src="image/MacBookFrame.webp" alt="" class="mockup-body">
                         <div class="screen-content">
                             <img src="${work.mac_image}" alt="${work.title}" loading="lazy">
@@ -116,7 +74,7 @@ async function loadWorks() {
                                 <img src="${work.sp_image}" alt="${work.title} スマホ版" loading="lazy">
                             </div>
                         </div>
-                    </div>
+                    </a></div>
                     <div class="work-info">
                         <h4>${work.title}</h4>
                         <p>${work.description}</p>
@@ -137,7 +95,7 @@ async function loadWorks() {
 document.addEventListener('DOMContentLoaded', loadWorks);
 
 // ==========================================================================
-// 💡 4. IntersectionObserver による背景色反転（is-inverted）の制御
+// IntersectionObserver による背景色反転（is-inverted）の制御
 // ==========================================================================
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -163,7 +121,7 @@ if (worksSection) {
 }
 
 // ==========================================================================
-// 💡 5. 現在地マーキング（メニューの●付与）の処理
+// 現在地マーキング（肉球）の処理
 // ==========================================================================
 const navItems = document.querySelectorAll('.g_nav li');
 
@@ -198,7 +156,7 @@ if (navItems.length > 0) {
 }
 
 // ==========================================================================
-// 💡 6. スマホ用ハンバーガーメニューの開閉・リサイズ制御
+// スマホ用ハンバーガーメニューの開閉・リサイズ制御
 // ==========================================================================
 function closeMenu() {
     spNav.classList.remove('is-open');
@@ -236,7 +194,7 @@ window.addEventListener('resize', () => {
 });
 
 // ==========================================================================
-// 💡 7. トップに戻るボタンのクリックイベント
+// トップに戻るボタンのクリックイベント
 // ==========================================================================
 if (scrollTopBtn) {
     scrollTopBtn.addEventListener('click', () => {
@@ -264,7 +222,7 @@ const nextBtn = document.getElementById('nextBtn');
 // 現在表示している画像のインデックス（番号）を記憶する変数
 let currentIndex = 0;
 
-// --- 関数：指定されたインデックスの画像とキャプションをパネルに表示する ---
+//  関数：指定されたインデックスの画像とキャプションをパネルに表示する 
 function showImage(index) {
   // インデックスが範囲内に収まるようにループさせる（例：最後の次を押すと最初に戻る）
   if (index >= galleryItems.length) {
@@ -284,7 +242,7 @@ function showImage(index) {
   lightboxCaption.textContent = img.alt;
 }
 
-// --- 1. ギャラリーの各写真をクリックしたとき ---
+//  ギャラリーの各写真をクリックしたとき 
 galleryItems.forEach((item, index) => {
   item.addEventListener('click', () => {
     // クリックされた画像のインデックスをセットしてパネルを開く
@@ -293,31 +251,31 @@ galleryItems.forEach((item, index) => {
   });
 });
 
-// --- 2. 閉じるボタン（×）をクリックしたとき ---
+//  閉じるボタン（×）をクリックしたとき 
 closeBtn.addEventListener('click', () => {
   lightbox.classList.remove('active');
 });
 
-// --- 3. 背景の黒い部分をクリックしたとき ---
+//  背景の黒い部分をクリックしたとき 
 lightbox.addEventListener('click', (e) => {
   if (e.target === lightbox) {
     lightbox.classList.remove('active');
   }
 });
 
-// --- 4. 「前へ」ボタンをクリックしたとき ---
+//  「前へ」ボタンをクリックしたとき 
 prevBtn.addEventListener('click', (e) => {
   e.stopPropagation(); // パネル全体のクリックイベントが発動するのを防ぐ
   showImage(currentIndex - 1); // 1つ前のインデックスを表示
 });
 
-// --- 5. 「次へ」ボタンをクリックしたとき ---
+//  「次へ」ボタンをクリックしたとき 
 nextBtn.addEventListener('click', (e) => {
   e.stopPropagation(); // パネル全体のクリックイベントが発動するのを防ぐ
   showImage(currentIndex + 1); // 1つ後のインデックスを表示
 });
 
-// --- (おまけ) キーボードの左右矢印キーでも操作できるようにする ---
+//  キーボードの左右矢印キーでも操作できるようにする 
 document.addEventListener('keydown', (e) => {
   if (lightbox.classList.contains('active')) {
     if (e.key === 'ArrowLeft') {
